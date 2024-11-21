@@ -1,0 +1,11 @@
+services:
+  dbmate:
+    image: amacneil/dbmate:v1.12.0
+    container_name: dbmate_nest_crud
+    user: '1000:1000'
+    environment:
+      - DATABASE_URL=postgres://postgres:root@host.docker.internal:5432/nest_crud?sslmode=disable
+      - PGPASSWORD=root
+    volumes:
+      - ./db:/db
+    command: -d db/migrations/ up
