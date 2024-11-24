@@ -4,7 +4,7 @@ services:
     container_name: dbmate_nest_crud
     user: '1000:1000'
     environment:
-      - DATABASE_URL=postgres://postgres:root@host.docker.internal:5432/nest_crud?sslmode=disable
+      - DATABASE_URL=postgres://postgres:root@host.docker.internal:5432/nest_crud_test?sslmode=disable
       - PGPASSWORD=root
     volumes:
       - ./db:/db

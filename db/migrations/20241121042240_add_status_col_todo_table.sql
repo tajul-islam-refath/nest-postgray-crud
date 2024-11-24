@@ -1,7 +1,11 @@
 -- migrate:up
-
 DO $$
-    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'todo_status') THEN
+BEGIN
+    IF NOT EXISTS (
+        SELECT 1
+        FROM pg_type
+        WHERE typname = 'todo_status'
+    ) THEN
         CREATE TYPE todo_status AS ENUM ('Pending', 'Running', 'Done');
     END IF;
 END $$;
